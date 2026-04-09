@@ -65,7 +65,7 @@ class LLMService:
         self, user_prompt: str, system_prompt: str | None = None
     ) -> ReviewSchema:
 
-        raw_llm_response = await self.ask_llm(user_prompt, system_prompt)
+        raw_llm_response = await self.prepare_and_ask_llm(user_prompt, system_prompt)
         # raw_llm_response = raw_llm_response[:-1]
 
         try:
