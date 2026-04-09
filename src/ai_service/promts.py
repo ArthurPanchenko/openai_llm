@@ -7,7 +7,9 @@ def create_code_review_user_prompt(user_code: str):
     TASK:
         Review python code
     CONSTRAINS:
-        be specific and technical
+        - Be specific and technical
+        - Do not give generic advice
+        
     CODE:
         
     """

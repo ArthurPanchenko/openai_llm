@@ -1,5 +1,6 @@
-from pydantic import BaseModel
 from typing import List, Literal
+
+from pydantic import BaseModel
 
 
 class QuestionSchema(BaseModel):
@@ -7,9 +8,9 @@ class QuestionSchema(BaseModel):
 
 
 class IssueSchema(BaseModel):
-    type: Literal['BUG', 'STYLE', 'PERFORMANCE']
+    type: Literal["BUG", "STYLE", "PERFORMANCE"]
     message: str
-    
+
 
 class ReviewSchema(BaseModel):
     issues: List[IssueSchema]

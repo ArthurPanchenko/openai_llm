@@ -1,3 +1,4 @@
+from fastapi import HTTPException
 from fastapi.routing import APIRouter
 
 from src.schemas import QuestionSchema
@@ -14,9 +15,7 @@ async def index():
 
 @api_router.post('/review', response_model=ReviewSchema)
 async def review(data: QuestionSchema):
-    llm_response = await llm_service.ask_llm(data.code)
-    
-    response = ReviewSchema.model_validate_json(llm_response)
-    
-    return response
+
+    return await llm_service.ask_and_parse(data.code)
+
     
